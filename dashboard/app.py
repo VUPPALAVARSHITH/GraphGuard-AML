@@ -24,9 +24,7 @@ st.set_page_config(
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_PATH = os.path.join(BASE_DIR, "data", "dashboard_account_risk_demo.csv")
 
-st.write("BASE_DIR:", BASE_DIR)
-st.write("Looking for file at:", DATA_PATH)
-st.write("File exists:", os.path.exists(DATA_PATH))
+
 
 # =====================================================
 # SAFE DATA LOADING
