@@ -12,7 +12,7 @@ st.set_page_config(
     layout="wide"
 )
 
-DATA_PATH = "./data/dashboard_account_risk_table.csv"
+DATA_PATH = "./data/dashboard_account_risk_demo.csv"
 NODE_MAP_PATH = "./data/node_mapping.csv"
 EDGE_INDEX_PATH = "./data/edge_index.npy"
 TX_RISK_PATH = "./data/transaction_risk_scores.npy"
