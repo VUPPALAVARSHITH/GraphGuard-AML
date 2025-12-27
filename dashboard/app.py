@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import os
 
+
 # =====================================================
 # DEPLOYMENT MODE
 # =====================================================
@@ -20,7 +21,12 @@ st.set_page_config(
 # =====================================================
 # PATHS (RELATIVE TO dashboard/app.py)
 # =====================================================
-DATA_PATH = "../data/dashboard_account_risk_demo.csv"
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_PATH = os.path.join(BASE_DIR, "data", "dashboard_account_risk_demo.csv")
+
+st.write("BASE_DIR:", BASE_DIR)
+st.write("Looking for file at:", DATA_PATH)
+st.write("File exists:", os.path.exists(DATA_PATH))
 
 # =====================================================
 # SAFE DATA LOADING
@@ -28,14 +34,10 @@ DATA_PATH = "../data/dashboard_account_risk_demo.csv"
 @st.cache_data
 def load_data():
     if not os.path.exists(DATA_PATH):
-        st.error(
-            "❌ Dataset not found.\n\n"
-            "Expected file at:\n"
-            f"`{DATA_PATH}`\n\n"
-            "Please ensure the demo dataset is present in the data/ folder."
-        )
+        st.error("❌ Dataset not found at resolved path")
         st.stop()
     return pd.read_csv(DATA_PATH)
+
 
 df = load_data()
 
